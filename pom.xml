@@ -207,10 +207,10 @@
   </dependencyManagement>
 
   <scm>
-    <connection>scm:git@gitlab.com:bileli/projet_j2ee.git</connection>
-    <developerConnection>scm:git@gitlab.com:bileli/projet_j2ee.git</developerConnection>
+    <connection>scm:https://github.com/ngrassa/projet_j2ee_docker.git</connection>
+    <developerConnection>scm:https://github.com/ngrassa/projet_j2ee_docker.gitt</developerConnection>
     <tag>HEAD</tag>
-    <url>git@gitlab.com:bileli/projet_j2ee.git</url>
+    <url>https://github.com/ngrassa/projet_j2ee_docker.git</url>
   </scm>
 
   <prerequisites>
