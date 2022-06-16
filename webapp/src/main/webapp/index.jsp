@@ -1,2 +1,2 @@
-<h1> Hello, Welcome to DevOps training  !!! Deploiement Manuelle test2</h1>
+<h1> Hello, Welcome to DevOps ISETKR  !!! Deploiement et push image vers dockerhub</h1>
 
