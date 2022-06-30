@@ -1,0 +1,16 @@
+---
+- name: deploy  image tomcat-image-prod in cluster Kubernetes
+  user: ubuntu
+  hosts: master
+  become: true
+
+
+  tasks:
+  - name: creation de 3 pods avec webapp.war
+    command: kubectl apply -f /home/ubuntu/j2ee-deploy.yaml
+    ignore_errors: no
+
+  - name: creation d'un service NodePort
+    command: kubectl apply -f /home/ubuntu/j2ee-service.yaml
+    ignore_errors: no
+
