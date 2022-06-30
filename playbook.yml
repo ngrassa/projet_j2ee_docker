@@ -1,0 +1,37 @@
+---
+- name: stop container remove all it with old images and pull new image in tomcat prod
+  user: ansadmin
+  hosts: tomcat
+  become: true
+  gather_facts: false
+  tasks:
+  - name: Get running containers
+    docker_host_info:
+      containers: yes
+    register: docker_info
+
+  - name: Stop running containers
+    docker_container:
+      name: "{{ item }}"
+      state: stopped
+    loop: "{{ docker_info.containers | map(attribute='Id') | list }}"
+  - name: Remove Stoped docker containers
+    shell: |
+       docker rm $(docker ps -a -q);
+    when: docker_info.containers != 0
+ - name: Get details of all images
+    docker_host_info:
+      images: yes
+      verbose_output: yes
+    register: image_info
+  - name: Remove all images
+    docker_image:
+      name: "{{ item }}"
+      state: absent
+    loop: "{{ image_info.images | map(attribute='Id') | list }}"
+
+  - name: pulling new image from dockerhub
+    command: docker pull grassa77/tomcat-image-prod4
+
+  - name: build docker container out of image
+    command: docker run -d --name c_tomcat_prod4 -p 8084:8080 grassa77/tomcat-image-prod4
