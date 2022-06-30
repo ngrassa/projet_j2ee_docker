@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: j2ee-deployment
+  labels:
+    app: j2ee
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: j2ee
+  template:
+    metadata:
+      labels:
+        app: j2ee
+    spec:
+      containers:
+      - name: projet-j2ee
+        image: grassa77/tomcat-image-clusterkubernetes
+        ports:
+        - containerPort: 8080
