@@ -4,7 +4,6 @@
   hosts: master
   become: true
 
-
   tasks:
   - name: creation de 3 pods avec webapp.war
     command: kubectl apply -f /home/ubuntu/j2ee-deploy.yaml
