@@ -208,7 +208,7 @@
 
   <scm>
     <connection>scm:https://github.com/ngrassa/projet_j2ee_docker.git</connection>
-    <developerConnection>scm:https://github.com/ngrassa/projet_j2ee_docker.gitt</developerConnection>
+    <developerConnection>scm:https://github.com/ngrassa/projet_j2ee_docker.git</developerConnection>
     <tag>HEAD</tag>
     <url>https://github.com/ngrassa/projet_j2ee_docker.git</url>
   </scm>
